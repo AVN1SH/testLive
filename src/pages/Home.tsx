@@ -9,6 +9,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import Faculties from './Faculties';
+import Slider from '@/components/animation/Slider';
 
 ChartJS.register(
   CategoryScale,
@@ -51,8 +52,10 @@ export const data = {
 };
 
 const Home = () => {
+
   return (
-    <div>
+    <div>      
+      <Slider />
       <Bar options={options} data={data} />
       <Faculties></Faculties>
     </div>
