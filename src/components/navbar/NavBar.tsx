@@ -1,13 +1,12 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { ArrowRightStartOnRectangleIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheckToSlot, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faCheckToSlot, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+// import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '@/features/authSlice';
-import { RootState } from '@/store/store';
+import { useDispatch} from 'react-redux';
+// import { logout } from '@/features/authSlice';
 import { admissionRemove } from '@/features/stdSlice';
 
 const navigation = [
@@ -25,22 +24,29 @@ function classNames(...classes : any) {
 
 const NavBar = () => {
 
-  const user = useSelector((state : RootState) => state.authSlice.userData)
-  const userStats = useSelector((state : RootState) => state.authSlice.status)
+  // const user = useSelector((state : RootState) => state.authSlice.userData)
+  const [user, setUser] = useState<{[any : string] : string} | null>(null)
+  // const userStats = useSelector((state : RootState) => state.authSlice.status)
+  const [userStats, setUserStatus] = useState(false)
+
   const location = useLocation();
   // const { hash, pathname, search } = location;
   const { pathname } = location;
   const [path, setPath] = useState('');
   const navigate = useNavigate();
-  const authStatus = useSelector((state : RootState) => state.authSlice.status)
+  // const authStatus = useSelector((state : RootState) => state.authSlice.status)
+  const [authStatus, setAuthStatus] = useState<boolean>(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
     setPath(pathname);
+    setUser({photo : ''})
+    setUserStatus(false)
+    setAuthStatus(false)
   }, [pathname])
 
   const handleOnClick = () => {
-    dispatch(logout());
+    // dispatch(logout());
     dispatch(admissionRemove());
   }
   return (
@@ -63,7 +69,7 @@ const NavBar = () => {
               </div>
               <div className="flex flex-1 items-center justify-start ml-10 sm:ml-0 sm:justify-center md:items-stretch md:justify-start h-full">
                 <div className="flex flex-shrink-0 items-center">
-                  <FontAwesomeIcon icon={faGraduationCap} className="text-slate-800 h-8 w-auto" />
+                  {/* <FontAwesomeIcon icon={faGraduationCap} className="text-slate-800 h-8 w-auto" /> */}
                   <h1 className="lg:block hidden ml-3 font-bold text-lg">My College</h1>
                 </div>
                 <div className="hidden md:ml-6 md:block h-full">
@@ -95,7 +101,7 @@ const NavBar = () => {
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-                  <FontAwesomeIcon icon={faCheckToSlot} /> Apply Now
+                   Apply Now
                 </button>}
 
                 {/* Profile dropdown */}
@@ -108,7 +114,7 @@ const NavBar = () => {
                         className="h-10 w-10 rounded-full object-cover"
                         src={`${user.photo}`}
                         alt=""
-                      /> : <FontAwesomeIcon icon={faUser} className='px-2.5 py-2'/>
+                      /> : ''
                       }
                     </Menu.Button>
                   </div>
