@@ -8,6 +8,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import Faculties from './Faculties';
 
 ChartJS.register(
   CategoryScale,
@@ -53,6 +54,7 @@ const Home = () => {
   return (
     <div>
       <Bar options={options} data={data} />
+      <Faculties></Faculties>
     </div>
   )
 }
