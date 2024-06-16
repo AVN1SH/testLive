@@ -1,5 +1,6 @@
 import { useState } from "react";
 import courses from "../../../public/courses.json";
+import classNames from "@/utils/classNames";
 
 const BadgeNav = () => {
   const [track, setTrack] = useState(0);
@@ -11,7 +12,7 @@ const BadgeNav = () => {
         {courses.map((course, index) => (
           <div 
             key={course.name} 
-            className={`${track === index ? "bg-white text-orange-500 rounded-t rounded-b-none border-b-2 border-b-white h-[50px] hover:text-orange-600" :"bg-slate-500 text-white hover:bg-slate-600 duration-75 rounded h-fit"} w-fit py-2 px-4 hover:cursor-pointer shadow-sm font-semibold border-solid border-slate-300 border-[2px] whitespace-nowrap`}
+            className={classNames(track === index ? "bg-white text-orange-500 rounded-t rounded-b-none border-b-2 border-b-white h-[50px] hover:text-orange-600" :"bg-slate-500 text-white hover:bg-slate-600 duration-75 rounded h-fit", "w-fit py-2 px-4 hover:cursor-pointer shadow-sm font-semibold border-solid border-slate-300 border-[2px] whitespace-nowrap")}
             onClick={(() => setTrack(index))}
           >
             {course.name}

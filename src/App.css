@@ -1,0 +1,44 @@
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(255, 204, 109);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 115, 0);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: orangered;
+}
+
+.custom-number-input::-webkit-inner-spin-button,
+.custom-number-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.custom-number-input {
+    -moz-appearance: textfield;
+}
+
+/* left nav bar */
+
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scroll-bar::-webkit-scrollbar-track {
+  background: rgb(255, 204, 109);
+}
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+  background: rgb(255, 115, 0);
+}
+.custom-scroll-bar::-webkit-scrollbar-thumb:hover {
+  background: orangered;
+  cursor: pointer;
+}

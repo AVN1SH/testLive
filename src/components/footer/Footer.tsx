@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {faFacebook, faGithub, faInstagram, faXTwitter, faYoutube} from "@fortawesome/free-brands-svg-icons"
+import { faGraduationCap } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom"
 
 const student = [
   { name: 'Student Portal', href: '#', current: true },
@@ -34,12 +38,18 @@ const Footer = () => {
       <div className="flex flex-1 flex-col items-center justify-between gap-5 xl:flex-row ">
         <div className="w-full flex flex-col items-start gap-4">
           <div className="flex items-end gap-3">
+          <FontAwesomeIcon icon={faGraduationCap} className="text-5xl text-slate-800" />
           <h1 className="text-3xl font-bold text-slate-800">My College</h1>
           </div>
           <p className="text-lg font-semibold text-slate-600">
             Discover the world of new technologies with advance course and learning tools and methods.
           </p>
           <div className="flex gap-3 items-center justify-between w-[250px] text-2xl text-slate-600 overflow-hidden">
+            <FontAwesomeIcon icon={faFacebook} className="hover:text-orange-600 hover:cursor-pointer duration-150"/>
+            <FontAwesomeIcon icon={faInstagram} className="hover:text-orange-600 hover:cursor-pointer duration-150" />
+            <FontAwesomeIcon icon={faXTwitter} className="hover:text-orange-600 hover:cursor-pointer duration-150" />
+            <FontAwesomeIcon icon={faGithub} className="hover:text-orange-600 hover:cursor-pointer duration-150" />
+            <FontAwesomeIcon icon={faYoutube} className="hover:text-orange-600 hover:cursor-pointer duration-150" />
           </div>
           <hr className="block xl:hidden m-3 border-gray-300"/>
         </div>
@@ -97,6 +107,7 @@ const Footer = () => {
       </div>
       <div>
         <hr className="m-3 border-gray-300"/>
+        <p className="text-slate-800"><span className="text-red-400">©</span> All rights reserved <span className="text-slate-300">|</span> Created and Designed by <Link to="https://github.com/AVN1SH" className="text-lime-600 underline font-semibold">Avnish Kr. Sharma</Link><span className="text-slate-300"> |</span> Backend Developer <Link to="https://github.com/rajkumarvikas" className="text-lime-600 underline font-semibold">Vikas Kumar</Link></p>
       </div>
     </footer>
   )
