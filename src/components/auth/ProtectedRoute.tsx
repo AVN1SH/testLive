@@ -6,8 +6,8 @@ type ProtectedRouteProps = PropsWithChildren;
 const ProtectedRoute = ({ children } : ProtectedRouteProps) => {
   const navigate = useNavigate();
   useEffect(() => {
-    const loading = true;
-    const authStatus = false;
+    const loading = false;
+    const authStatus = true;
     if(!loading && !authStatus) {
       navigate("/", {replace : true});
     }
