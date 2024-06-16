@@ -7,8 +7,7 @@ const ProtectedRoute = ({ children } : ProtectedRouteProps) => {
   const navigate = useNavigate();
   useEffect(() => {
     const loading = false;
-    const authStatus = true;
-    if(!loading && !authStatus) {
+    if(loading) {
       navigate("/", {replace : true});
     }
   }, [navigate])

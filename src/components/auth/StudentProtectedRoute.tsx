@@ -8,8 +8,7 @@ const StudentProtectedRoute = ({ children } : ProtectedRouteProps) => {
 
   useEffect(() => {
     const loading = false
-    const userData = {role : "sudent"}
-    if(!loading && !(userData?.role === "student")) {
+    if(loading) {
       navigate("/", {replace : true});
     }
   }, [navigate])
